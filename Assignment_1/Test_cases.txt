@@ -1,0 +1,36 @@
+﻿% test cases for interl
+interI([1,2],[],X).
+\\[]
+interI([2,3,4],[2,3],X).
+\\[2,3]
+interI([3,2,1],[4,3,2,0],X).
+\\[3,2]
+
+% test cases for diffl
+diffI([],[3,4,5],X).
+\\[]
+diffI([3,4],[5],X).
+\\[3,4]
+diffI([4,5,6],[6,4],X).
+\\[5]
+
+% test for cartesianl
+cartesianI([],[a,b],X).
+\\[]
+cartesianI([1,2],[a,b],X).
+\\[(1,a),(1,b),(2,a),(2,b)] \\this should be list of tuples, not list of list 
+cartesianI([],[],X).
+\\[] 
+mem((1, 4), ref-tran([(1, 2), (2, 3), (3, 4)], [1,2,3,4]), []).
+\\true
+mem((1, 1), ref-tran([(1, 2), (2, 3), (3, 4)], [1,2,3,4]), []).
+\\true
+
+mem((a,a), equivalence([], [a,c,d]), []).
+\\true
+mem((b,b), equivalence([], [a,c,d]), []). #Should return false
+\\false
+mem((d,a), equivalence([(a,c), (a,d)], [a,c,d]), []).
+\\true
+mem((a,d), equivalence([(c,d), (a,c)], [a,c,d]), []).
+\\true

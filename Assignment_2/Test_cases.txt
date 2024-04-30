@@ -1,0 +1,54 @@
+COL226 A2 Test cases
+
+
+#
+	Input (format: hastype(G, E, T))
+	E
+	output
+	1
+	hastype([(a, intT), (b,intT)], plus(times(varT(a), num(5)),times(varT(b), num(3))), boolT).
+	a*5 + b*3
+	false
+	2
+	hastype([(a, intT), (b,intT)],plus(times(varT(a), num(5)),times(varT(b), num(3))), intT).
+	a*5 + b*3
+	true
+	3
+	hastype([(a, intT), (b,intT)], not(gt(plus(times(varT(a), num(5)),times(varT(b), num(3))), num(0))) , boolT).
+	not((a*5 + b*3) > 0)
+	true
+	4
+	hastype([(a, intT), (b,intT)], not(gt(plus(times(varT(a), num(5)),times(varT(b), num(3))), num(0)) ), intT).
+	not((a*5 + b*3) > 0)
+	false
+	5
+	hastype([(c,boolT)], varT(c), intT).
+	c
+	false
+	6
+	hastype([(c,boolT)], varT(c), boolT).
+	c
+	true
+	7
+	hastype([(a, boolT), (b, boolT)], and(or(f, varT(a)), and(varT(b), t)), boolT).
+	(false or a) and (b and true)
+	true
+	8
+	hastype([(a, boolT), (b, boolT)], and(or(f, varT(a)), and(varT(b), t)), intT).
+	(false or a) and (b and true)
+	false
+	9
+	hastype([(a, boolT)], not(varT(a)), boolT).
+	not(a)
+	true
+	10
+	hastype([(a, intT), (b, intT)], eq(plus(varT(a), num(5)), times(varT(b),num(3))), boolT).
+	(a+5) = (b*3)
+	true
+	
+
+Test cases may be formatted according to the your implementation.
+For eg. the expression in testcase 1 may be any of the following:
+* a*5 + b*3
+* plus(mult(var(a),numeral(5)), mult(var(b), numeral(3)
+* Anything else with the same meaning based on their definition of the language

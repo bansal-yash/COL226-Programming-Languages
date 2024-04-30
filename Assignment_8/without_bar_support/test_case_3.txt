@@ -1,0 +1,26 @@
+likes(mike, cake).
+likes(tom, cake).
+loves(ron,cheesecake).
+likes(X,cake) :- loves(X,cheesecake).
+friends(X,Y) :- likes(X, cake), likes(Y, cake).
+bestfriends(X,Y) :- friends(X,Y), loves(X,cheesecake), likes(Y,cake).
+
+
+goals :-
+
+bestfriends(ron,tom).
+true
+
+
+bestfriends(ron,ron).
+true
+
+
+bestfriends(ron,X).
+true
+X = ron
+
+
+bestfriends(tom,ron).
+false
+

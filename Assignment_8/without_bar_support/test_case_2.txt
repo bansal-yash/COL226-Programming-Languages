@@ -1,0 +1,19 @@
+int(1).
+int(succ(X)) :- int(X).
+
+
+goal :-
+
+int(X).
+true
+
+
+int(succ(1)).
+true
+
+
+int(succ(Y)).
+true
+Y = 1
+
+
